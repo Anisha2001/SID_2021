@@ -1,0 +1,310 @@
+*
+{
+    margin: 0;
+    padding: 0;
+
+}
+
+.menubar{
+    background-image: linear-gradient(to left, #feb64b,#fff);
+}
+
+
+
+.about_content{
+    text-align: justify;
+    justify-content: right;
+    margin-right: 30px;
+}
+
+/* Wings */
+
+.wings .contentBx {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px 50px;
+    text-align: center;
+    align-items: center;
+    float: center;
+    background: linear-gradient(to left, #ac75f5, #feb64b);
+}
+
+.wing_content{
+    text-align: justify;
+    padding-top: 20px;
+}
+
+
+.wings .wing_content {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px 300px;
+    align-items: center;
+    float: center;
+}
+
+.wings .wing_content {
+    color: #111;
+    font-size: 17px;
+    font-weight: 300;
+    letter-spacing: 1.3px;
+    line-height: 1.5;
+    font-family: 'Abel', sans-serif;
+    text-align: justify;
+}
+
+/*Wings Hover Cards*/
+
+.w{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    min-height: 50vh;
+
+}
+
+.container3{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px;
+
+}
+
+.container3 .wing_hover{
+    position: relative;
+    height:150px;
+    background: linear-gradient(to left, #fff, #feb64b);
+    display: flex;
+    width: 20%;
+    margin-top: 10px;
+
+}
+
+.container3 .wing_hover .imgBx{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+}
+
+.container3 .wing_hover:hover .imgBx{
+    width: 150px;
+    height: 150px;
+    left: -75px;
+    top: calc(50%-75px);
+    transition: 0.5s ease-in-out;
+    background: #ff0057;
+}
+
+.container3 .wing_hover .imgBx:before{
+    content: attr(data-text);
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 3em;
+    color: rgba(255, 249, 249, 0.116);
+    font-weight: 700;
+}
+
+.container3 .wing_hover .imgBx img{
+    max-width: 100px;
+    transition: 00.5s ease-in-out;
+}
+
+.container3 .wing_hover:hover .imgBx{
+    max-width: 75px;
+}
+
+.container3 .wing_hover .content{
+    position: absolute;
+    right: 0;
+    width: calc(100%-75px);
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container3 .wing_hover .content .h3{
+    color: #444;
+    margin-bottom: 5px;
+    font-style: 24px;
+}
+
+@media (max-width: 992px)
+{
+    .container3{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container3 .wing_hover{
+        width: 400px;
+    }
+}
+
+@media (max-width: 768px)
+{
+    .container3 .wing_hover{
+        max-width: 300px;
+        flex-direction: column;
+        height: auto;
+    }
+    .container3 .wing_hover .imgBx, .container3 .wing_hover:hover .imgBx img{
+        width: 100%;
+        height: 180px;
+        left: 0;
+
+    }
+
+    .container3 .wing_hover .imgBx, .container3 .wing_hover:hover .imgBx img{
+        max-width: 350px;
+    }
+
+    .container3 .wing_hover .imgBx, .container3 .wing_hover .content{
+        padding: 5px;
+        position: relative;
+        width: 100%;
+    }
+ 
+}
+
+/*Projects*/
+
+.projectBx {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px 50px;
+    text-align: center;
+    align-items: center;
+    float: center;
+    background: linear-gradient(to left, #ac75f5, #feb64b);
+}
+ 
+  
+  .card:hover{
+    background-color: lightgray;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.7);
+    transition: box-shadow 500ms,background 3s ;
+     transition-delay: 500ms;
+  }
+  .card a:hover{
+    background-color: lightgray;
+   color:black;
+    transition: box-shadow 500ms,background 3s ;
+     transition-delay: 500ms;
+  }
+
+  /*Footer*/
+
+  footer {
+    letter-spacing: 1.3px;
+    font-family: 'Abel', sans-serif;
+}
+
+ .tab {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px 50px;
+    text-align: center;
+    align-items: center;
+    float: center;
+    background: linear-gradient(to left, #ac75f5, #feb64b);
+}
+
+.connect h2{
+    text-decoration: none;
+    font-size:4rem;
+    font-weight:bold;
+   
+   }
+  
+  .social a{
+    font-size:4.5rem;
+    padding:3rem;
+  }
+  .fa-facebook{
+    color:#3b5998;
+  }
+  
+  .fa-linkedin{
+    color:#0077b5;
+  }
+  .fa-instagram{
+    color:#8a3ab9;
+  }
+  .fa-github{
+    color:#000;
+  }
+  .fa-facebook:hover,
+  .fa-twitter:hover,
+  .fa-linkedin:hover,
+  .fa-instagram:hover,
+  .fa-github:hover{
+    color:#d5d5d5;
+  }
+
+  footer{
+    background-color:#240b36;
+    color:#d5d5d5;
+    padding-top:2rem;
+  }
+  footer a{
+    color:#d5d5d5;
+    text-decoration: none;
+  }
+  footer a:hover{
+    color:blanchedalmond;
+    text-decoration: none;
+  }
+  hr.light{
+    border-top:1px solid #d5d5d5;
+    width:100%;
+    margin-top:0.8rem;
+    margin-bottom:1rem;
+  }
+  hr.light-100{
+    border-top:1px solid #d5d5d5;
+    width:100%;
+    margin-top:0.8rem;
+    margin-bottom:1rem;
+  }
+  
+  .reveal{
+    position:relative;
+    transform:translateY(150px);
+    opacity:0;
+    transition: all 1s ease;
+  }
+  .reveal.active{
+    transform:translateY(0px);
+    opacity:1
+  }
+  
+  
+
+
+
+
