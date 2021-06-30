@@ -15,6 +15,7 @@
     text-align: justify;
     justify-content: right;
     margin-right: 30px;
+    font-family: 'Abel', sans-serif;
 }
 
 /* Wings */
@@ -54,6 +55,15 @@
     font-family: 'Abel', sans-serif;
     text-align: justify;
 }
+
+@media (max-width:992px)
+{
+  .wing_content{
+    display: none;
+  }
+
+}
+
 
 /*Wings Hover Cards*/
 
@@ -108,7 +118,7 @@
     left: -75px;
     top: calc(50%-75px);
     transition: 0.5s ease-in-out;
-    background: #ff0057;
+    background: #feb64b;
 }
 
 .container3 .wing_hover .imgBx:before{
