@@ -31,18 +31,14 @@
 
     if(mysqli_num_rows($checkUserStatus) > 0) { // if user exists!
 
-        $getpassword = "SELECT * FROM `users` WHERE `email` = '$email'";
-        $getpwd = mysqli_query($conn,$getpassword) or die(mysqli_error($conn));
-        $getpass = mysqli_fetch_assoc($getpwd);
-
-        $pass = $getpass['password'];
-
-
-        if($password == $pass){
+        $getpassword = mysqli_fetch_assoc($checkUserStatus);
+        $getpwd = $getpassword['password'];
+        
+        if($password == $getpwd){
 
         $_SESSION['email'] = $email;
 
-        header('Location: index.html');
+        header('Location: index.php');
 
         } else {
 
