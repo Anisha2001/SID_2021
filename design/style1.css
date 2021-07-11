@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet");
+
+
+:root{
+    --font-ubuntu:'Ubuntu',monospace;
+    --color-border:#eSeSeS;
+
+}
+
+.font-ubuntu{
+    font: normal ;
+    width: 500;
+    font-size: 16px;
+    font-family: var(--font-ubuntu);
+
+}
+
+#register{
+    padding: 5% 0;
+    background: url("design/back.jpeg");
+    background-repeat: no-repeat;
+}
+
+#rform input[type="text"],
+#rform input[type="password"],
+#rform input[type="email"],
+#rform input[type="year"]{
+    border: none;
+    border: unset;
+    border-bottom: 1px solid  #e7e4e4;
+    font-family: var(--font-ubuntu);
+    font-size: 17px;
+
+}
+
+#rform input[type="text"],
+#rform input[type="password"],
+#rform input[type="email"],
+#rform input[type="year"]{
+    outline: none;
+    box-shadow: none;
+}   
