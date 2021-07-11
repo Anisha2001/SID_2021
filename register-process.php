@@ -44,6 +44,36 @@
 
 
 	if (empty($error)) {
+		//register a new user
+		$hashed_pd = password_hash($password_1,PASSWORD_DEFAULT);
+		require("connection.php");
+
+		//make a query
+		$query="INSERT INTO new-user(id,Name,Email,phone number,branch,year,password_1,registered on)";
+		$query.="VALUES('',?,?,?,?,?,?,?,NOW())";
+        
+
+		//initialising a statement
+		$q=mysqli_stmt_init($con);
+
+		//preparing sql statement
+
+		mysqli_stmt_prepare($q,$query);
+
+		//binding values
+
+		mysqli_stmt_bind_param($q, 'sssssss',$name, $email,$phoneno,$branch,$year,$hashed_pd);
+        
+		//execute statement
+		mysqli_stmt_execute($q);
+		if (mysqli_stmt_affected_rows($q)==1) {
+			print"Recorded successfully.";
+		} else {
+			print"Error while registering.";
+		}
+
+
+		
         echo("valid");
     } else {
         echo("not valid");
