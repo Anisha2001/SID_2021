@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
 
 
 :root{
@@ -17,8 +17,9 @@
 
 #register{
     padding: 5% 0;
-    background: url("design/back.jpeg");
+    background: url("https://t3.ftcdn.net/jpg/03/69/34/16/360_F_369341673_zNwyAZ0xUGr4boZ7ukixhWbpNEI6lYfa.jpg");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #rform input[type="text"],
@@ -30,13 +31,7 @@
     border-bottom: 1px solid  #e7e4e4;
     font-family: var(--font-ubuntu);
     font-size: 17px;
-
-}
-
-#rform input[type="text"],
-#rform input[type="password"],
-#rform input[type="email"],
-#rform input[type="year"]{
     outline: none;
     box-shadow: none;
-}   
+
+}

@@ -1,95 +1,90 @@
 <?php
 
-	require("helper.php");
+	// session start
+    session_start();
 
-	//error variable
+    // include DB connection
+    include('connection.php');
 
-	$error=array();
+    // declaring variables
+    $name = "";
+    $email = "";
+	$phone = "";
+	$branch = "";
+	$year = "";
+    $password_1 = "";
+    $password_2 = "";
+    $salt = uniqid();
 
-	$name = validate_input_text($_POST["name"]);
-	if (empty($name)) {
-		$error[]="Please mention Name.";
-	}
-
-	$email = validate_input_email($_POST["email"]);
-	if (empty($email)) {
-		$error[]="Please mention E-mail.";
-	}
-
-    $phoneno = validate_input_text($_POST["phoneno"]);
-	if (empty($phoneno)) {
-		$error[]="Please mention Phone Number.";
-	}
-
-	$branch = validate_input_text($_POST["branch"]);
-	if (empty($branch)) {
-		$error[]="Please mention Branch.";
-	}
-
-    $year = validate_input_text($_POST["year"]);
-	if (empty($year)) {
-		$error[]="Please mention Year.";
-	}
- 
-	$password_1 = validate_input_text($_POST["password_1"]);
-	if (empty($password_1)) {
-		$error[]="Please enter valid Password.";
-	}
-
-	$password_2 = validate_input_text($_POST["password_2"]);
-	if (empty($password_2)) {
-		$error[]="Please confirm the Password.";
-	}
-
-
-
-	if (empty($error)) {
-		//register a new user
-		$hashed_pd = password_hash($password_1,PASSWORD_DEFAULT);
-		require("connection.php");
-
-		//make a query
-		$query="INSERT INTO new-user(id,Name,Email,phone number,branch,year,password_1,registered on)";
-		$query.="VALUES('',?,?,?,?,?,?,?,NOW())";
-        
-
-		//initialising a statement
-		$q=mysqli_stmt_init($con);
-
-		//preparing sql statement
-
-		mysqli_stmt_prepare($q,$query);
-
-		//binding values
-
-		mysqli_stmt_bind_param($q, 'sssssss',$name, $email,$phoneno,$branch,$year,$hashed_pd);
-        
-		//execute statement
-		mysqli_stmt_execute($q);
-		if (mysqli_stmt_affected_rows($q)==1) {
-			print"Recorded successfully.";
-		} else {
-			print"Error while registering.";
-		}
-
-
-		
-        echo("valid");
-    } else {
-        echo("not valid");
+    // get form data
+    if(isset($_POST['name'])) {
+        $name = $_POST['name'];
+    }
+    if(isset($_POST['email'])) {
+        $email = $_POST['email'];
+    }
+	if(isset($_POST['phoneno'])) {
+        $phone = $_POST['phoneno'];
+    }
+	if(isset($_POST['branch'])) {
+        $branch = $_POST['branch'];
+    }
+	if(isset($_POST['year'])) {
+        $year = $_POST['year'];
+    }
+    if(isset($_POST['password_1'])) {
+        $password_1 = $_POST['password_1'];
+    }
+    if(isset($_POST['password_2'])) {
+        $password_2 = $_POST['password_2'];
     }
 
+   
+	if($name != "" && $email != "" && $password_1 != "" && $password_2 != "") { // if the form fields are not empty!
+        
+        $checkUser = "SELECT * FROM users WHERE email = '$email'";
+        $checkUserStatus = mysqli_query($conn,$checkUser) or die(mysqli_error($conn));
+
+        if(mysqli_num_rows($checkUserStatus) > 0) { // if user exists!
+
+            header('Location: registration.php?message=You have already registered!');
+
+        } else {
+
+            if($password_1 == $password_2) { // if the password fields match!
+            
+                $insertUser = "INSERT INTO users(name,email,phoneno,branch,year,password) VALUES('$name','$email','$phone','$branch','$year','$password_1')";
+                $insertUserStatus = mysqli_query($conn,$insertUser) or die(mysqli_error($conn));
+    
+                if($insertUserStatus) { // if the user is successfully registered!
+      
+                    header('Location:login.php?message=You have registered successfully!');
+    
+                }  else { // if user is not registered successfully!
+    
+                    header('Location:registration.php?message=Unable to register!');
+    
+                }
+    
+            } else { // if password fields dont match!
+    
+                header('Location:registration.php?message=Password fields do not match!');
+    
+            }
+
+        }
+
+
+    } else { // if any of the fields are empty!
+
+        header('Location: ../register.php?message=Please fill the fields properly!');  
+
+    }
+?>
 
     
 
 
-    
 
 
 
-
-
-
-
-
-   ?>

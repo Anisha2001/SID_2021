@@ -13,13 +13,7 @@
 </head>
 <body>
 	
-	<?php
-	if ($_SERVER["REQUEST_METHOD"] == "POST"){
-		require("register-process.php");
-	}
-
-	?>
-
+	
 
 	<main id="main_area">
 
@@ -35,8 +29,10 @@
 				
 					</div>
 
+					<!-- Form starts -->
+
 					<div class="d-flex justify-content-center">
-						<form action="registration.php" method="post" enctype="multipart/form-data" id="rform">
+						<form action="register-process.php" method="post" enctype="multipart/form-data" id="rform">
 						    <div class="form-row">
 								<div class="col">
 									<input class="form-control" placeholder="Name" type="text" name="name" required>
@@ -69,13 +65,13 @@
 
 							<div class="form-row my-3">
 								<div class="col">
-								<input class="form-control" placeholder="Password*" type="text" name="password_1" required>
+								<input class="form-control" placeholder="Password*" type="password" name="password_1" required>
 								</div>
 							</div>
 
 							<div class="form-row my-3">
 								<div class="col">
-								<input class="form-control" placeholder="Confirm Password*" type="text" name="password_2" required>
+								<input class="form-control" placeholder="Confirm Password*" type="password" name="password_2" required>
 								<small id="confirm_error" class="text-danger"></small>
 								</div>
 							</div>
